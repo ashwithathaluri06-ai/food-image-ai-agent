@@ -13,6 +13,7 @@ A Python-based Food Image AI Agent that searches a food dataset and retrieves th
 - Handles unknown and empty inputs
 - 211 food items with processed images
 - Image quality and file validation
+- Automatic image candidate selection and retry
 
 ## Project Structure
 
@@ -26,16 +27,21 @@ food-image-ai-agent/
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
-└── venv/
-    └── src/
-        ├── create_image_dataset.py
-        ├── food_image_agent.py
-        ├── image_lookup.py
-        ├── image_processor.py
-        ├── image_quality.py
-        ├── image_search.py
-        └── process_all_foods.py
-Technologies Used
+├── src/
+│   ├── create_image_dataset.py
+│   ├── food_image_agent.py
+│   ├── image_lookup.py
+│   ├── image_processor.py
+│   ├── image_quality.py
+│   ├── image_search.py
+│   └── process_all_foods.py
+└── tests/
+    ├── test_image_search.py
+    ├── test_pdf.py
+    ├── test_quality.py
+    ├── test_quality_check.py
+    └── test_search.py
+    Technologies Used
 Python
 Pandas
 OpenPyXL
@@ -56,7 +62,7 @@ How to Run
 
 Activate the virtual environment and run:
 
-python .\venv\src\food_image_agent.py
+python .\src\food_image_agent.py
 
 Enter a food name when prompted.
 
@@ -64,7 +70,7 @@ Example:
 
 Enter a food name: chicken tandoori
 
-The agent finds the matching food and opens its corresponding image.
+The agent finds the matching food and displays its corresponding image.
 
 Example
 
@@ -76,4 +82,4 @@ the agent displays matching food items and allows the user to select one.
 
 Project Status
 
-Core food search, image lookup, image processing, validation, and user interaction features are implemented and tested.
+Core food search, image lookup, image processing, automatic image candidate selection and retry, validation, and user interaction features are implemented and tested.
